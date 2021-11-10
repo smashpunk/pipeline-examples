@@ -1,7 +1,9 @@
 pipeline {
-    agent docker {
-        image 'busybox'
-        label 'latest'
+    agent {
+        docker {
+            image 'busybox'
+            label 'latest'
+        }
     }
     stages {
         stage("pre"){
