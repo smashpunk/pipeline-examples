@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'busybox'
-            label 'latest'
-        }
-    }
+    agent any
     stages {
         stage("pre"){
             steps {
