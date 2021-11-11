@@ -1,7 +1,7 @@
 pipeline {
     agent none
     environment {
-        JENKINS_ACCESS_KEY = credentials('a4d39934-9d2c-4594-b866-748e58becfea')
+        JENKINS_ACCESS_KEY = credentials('5ec6d6d2-563a-4822-9775-d50f1e565101')
     }
     stages {
         stage("pre"){
