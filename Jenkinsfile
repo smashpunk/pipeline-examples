@@ -21,6 +21,8 @@ pipeline {
             steps{
                 echo "We are finished!"
                 sh 'printenv'
+                sh 'echo $JENKINS_ACCESS_KEY_USR'
+                sh 'echo $JENKINS_ACCESS_KEY_PSW'
             }
         }
     }
