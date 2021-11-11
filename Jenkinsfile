@@ -1,5 +1,8 @@
 pipeline {
     agent none
+    environment {
+        JENKINS_ACCESS_KEY = credentials('jenkins')
+    }
     stages {
         stage("pre"){
             agent { docker 'maven:3.8.1-adoptopenjdk-11' }
@@ -17,6 +20,7 @@ pipeline {
             agent { docker 'maven:3.8.1-adoptopenjdk-11' }
             steps{
                 echo "We are finished!"
+                sh 'printenv'
             }
         }
     }
