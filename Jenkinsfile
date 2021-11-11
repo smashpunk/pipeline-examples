@@ -20,9 +20,9 @@ pipeline {
             agent { docker 'maven:3.8.1-adoptopenjdk-11' }
             steps{
                 echo "We are finished!"
-                sh 'printenv'
-                sh 'echo $JENKINS_ACCESS_KEY_USR'
-                sh 'echo $JENKINS_ACCESS_KEY_PSW'
+                sh "printenv"
+                sh "echo $JENKINS_ACCESS_KEY_USR"
+                sh "echo $JENKINS_ACCESS_KEY_PSW"
             }
         }
     }
