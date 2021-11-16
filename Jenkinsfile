@@ -8,7 +8,7 @@ pipeline {
             message "Shall we go?"
             ok "yes"
             parameters {
-                string(name: 'Go or No go', defaultValue: 'Let's process', description: 'do you approval it?')
+                string(name: 'Go or No go', defaultValue: 'Let\'s process', description: 'do you approval it?')
     }  
 }
         stage("pre"){
