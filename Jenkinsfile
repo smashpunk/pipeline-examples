@@ -1,28 +1,17 @@
 pipeline {
-    agent none
-    environment {
-        JENKINS_ACCESS_KEY = credentials('5ec6d6d2-563a-4822-9775-d50f1e565101')
-    }
+    agent any
     stages {
-        stage("pre"){
-            agent { docker 'maven:3.8.1-adoptopenjdk-11' }
+        stage('Example') {
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "alice,bob"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+                }
+            }
             steps {
-                echo "Hello, world!"
-            }
-        }
-        stage("body"){
-            agent { docker 'maven:3.8.1-adoptopenjdk-11' }
-            steps{
-                echo "Here we go~"
-            }
-        }
-        stage("post"){
-            agent { docker 'maven:3.8.1-adoptopenjdk-11' }
-            steps{
-                echo "We are finished!"
-                sh "printenv"
-                sh "echo $JENKINS_ACCESS_KEY_USR"
-                sh "echo $JENKINS_ACCESS_KEY_PSW"
+                echo "Hello, ${PERSON}, nice to meet you."
             }
         }
     }
